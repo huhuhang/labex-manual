@@ -27,6 +27,9 @@ const config: DocsThemeConfig = {
   feedback: {
     content: null,
   },
+  project: {
+    link: "https://github.com/huhuhang/labex-docs",
+  },
   i18n: [
     { locale: "en", text: "English" },
     { locale: "zh", text: "中文" },
