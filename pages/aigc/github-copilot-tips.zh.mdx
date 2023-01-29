@@ -1,0 +1,25 @@
+# GitHub Copilot 指南
+
+> 本部分内容欢迎作者参与贡献，一旦采纳会给予奖励。
+
+针对 GitHub Copilot 的一些使用经验。
+
+## 先写注释
+
+如果你想创建一个将两个数字相加的函数，你可以写一个这样的注释。Copilot 会根据注释自动生成函数。
+
+```js
+// Add two numbers (GitHub Copilot adds the following)
+function add(a, b) {
+  return a + b;
+}
+```
+
+当你编写步骤验证脚本时，Copilot 也很好用。
+
+```bash
+# check if the file exists (GitHub Copilot adds the following)
+test -f ~/hello.py
+# check if the file contains the string "Hello World"
+grep "Hello World" ~/hello.py
+```

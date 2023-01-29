@@ -1,0 +1,33 @@
+# 格式规范
+
+本指南旨在帮助你编写清晰、简明的文档内容。
+
+## 文档
+
+1. 你必须使用 Markdown 来编写实验、挑战和其他文档。了解更多关于 Markdown 基本写作和格式化语法，请参考 [这里](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)。
+2. 所有的 `.md` 文件都应该用 [Prettier](https://prettier.io/) 进行格式化。
+3. 所有的 Markdown 文档标题应该使用 [Title Case](https://en.wikipedia.org/wiki/Title_case) 格式（AP 样式）。你可以使用 [Titlecase Converter](https://titlecaseconverter.com/)。
+4. 所有专有名词都应使用官方正式用法，不清楚时可以 Google 一下。
+   - 例如，GitHub 而不是 Github。
+   - 例如，Python 而不是 python。
+5. 单反引号只能用于内联代码，请不要用它来突出一个单词或短语。
+   - 正确用法：`print("Hello World")`。
+   - 错误用法：`这句话很重要`。
+6. 双反引号只能用于代码块，它必须有一个指定的语言。
+   - \`\`\`python
+7. 应使用 Grammarly 或者 DeepL Write 来检查拼写和语法错误。
+
+## 图片
+
+1. 所有图片不应侵犯任何版权或商标法。
+2. 所有的图像都应该在 `assets` 目录下。
+3. 所有图片在添加到代码仓库之前应使用 [TinyPNG](https://tinypng.com/) 进行压缩。
+4. 所有图片应使用以下格式命名：`lab-<lab-name>-<step-number>-<image-number>.png`。
+5. 所有图片应使用以下格式进行引用：`![<image-description>](assets/lab-<lab-name>-<step-number>-<image-number>.png)`。
+
+## 样式
+
+下面是更多的样式要求：
+
+- 请保持标题和描述的简洁性。
+- 在你的代码示例中，不要使用非正式的关键词，如 'demo'，'test' 等。

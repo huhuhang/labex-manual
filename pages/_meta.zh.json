@@ -1,0 +1,12 @@
+{
+  "index": "概览",
+  "basic": "基础",
+  "aigc": "AIGC",
+  "others": "其他",
+  "contact": {
+    "title": "LabEx ↗",
+    "type": "page",
+    "href": "https://labex.io",
+    "newWindow": true
+  }
+}

@@ -1,0 +1,93 @@
+# 如何提交
+
+## Fork 仓库
+
+如果你还在试写阶段，你需要把我们提供的公共仓库仓库 Fork 到你自己的 GitHub 账户，然后克隆到你的本地计算机。
+
+![Fork Repo](.github/assets/fork-repo.png)
+
+如果你已经是我们的签约作者，则不需要 Fork 仓库。我们会邀请你加入我们的组织，然后你有自己的专属仓库，可以直接克隆。
+
+## 创建新分支
+
+1. 打开终端；
+2. 切换到仓库目录下；
+3. 使用下面命令创建属于你自己的新分支:
+
+   ```bash
+   git checkout -b <branch-name>
+   ```
+
+   替换 `<branch-name>` 名称，例如:
+
+   ```bash
+   git checkout -b add-lab-hello-world
+   ```
+
+## 编辑文件
+
+在本地仓库中，你可以使用任何你喜欢的编辑器来编辑文件。我们推荐使用 [Visual Studio Code](https://code.visualstudio.com/)。详见 [工具推荐](tools)。
+
+## 提交更改
+
+1. 打开终端；
+2. 切换到仓库目录下；
+3. 使用下面命令添加你要提交的文件:
+
+   ```bash
+   git add <file-name>
+   ```
+
+   替换 `<file-name>` 为你要提交的文件名，例如:
+
+   ```bash
+   git add python/add-lab-hello-world/step1.md
+   ```
+
+   如果你想要提交所有文件，可以使用下面命令:
+
+   ```bash
+   git add .
+   ```
+
+4. 使用下面命令提交你的更改:
+
+   ```bash
+    git commit -m "<commit-message>"
+   ```
+
+   替换 `<commit-message>` 为你的提交信息，例如:
+
+   ```bash
+   git commit -m "Add lab-hello-world"
+   ```
+
+   关于 `<commit-message>` 的编写规范，可以参考 [Semantic Commit Messages](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716)
+
+5. 使用下面命令把你的更改推送到 GitHub:
+
+   ```bash
+   git push origin <branch-name>
+   ```
+
+   替换 `<branch-name>` 为你的分支名称，例如:
+
+   ```bash
+   git push origin add-lab-hello-world
+   ```
+
+## 创建 Pull Request
+
+在 GitHub 上打开你的仓库。点击 **Contribute** → **Open pull requests**。
+
+![PR](.github/assets/pr.png)
+
+重新命名 PR，点击 **Create pull request**。
+
+![Create PR](.github/assets/create-pr.png)
+
+## 等待 Review
+
+等待我们的 Review，如果有问题，我们会在 PR 中评论。如果没有问题，我们会合并你的 PR。
+
+**请通过 [Collaborating with pull requests.](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests) 了解更多。**
