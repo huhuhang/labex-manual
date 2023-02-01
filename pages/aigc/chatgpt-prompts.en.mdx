@@ -55,6 +55,7 @@ Generate Python test code for below:
 
 import datetime
 
+
 def date_flip(date_str: str) -> str:
     """Flip the day and month of a date string.
 
@@ -65,10 +66,7 @@ def date_flip(date_str: str) -> str:
         _type_: like "01-10-2020"
     """
     date_obj = datetime.datetime.strptime(date_str, "%Y-%m-%d")
-    day = date_obj.day
-    month = date_obj.month
-    year = date_obj.year
-    new_date_str = "{}-{}-{}".format(day, month, year)
+    new_date_str = date_obj.strftime("%d-%m-%Y")
     return new_date_str
 ```
 

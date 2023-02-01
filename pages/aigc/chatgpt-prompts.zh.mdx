@@ -47,3 +47,52 @@ Generate the test case to this challenge.
 ```text
 Generate a more complex programming challenge.
 ```
+
+## 生成单元测试
+
+提示语：
+
+```text
+Generate Python test code for below:
+
+import datetime
+
+
+def date_flip(date_str: str) -> str:
+    """Flip the day and month of a date string.
+
+    Args:
+        date_str (_type_): like "2020-10-01"
+
+    Returns:
+        _type_: like "01-10-2020"
+    """
+    date_obj = datetime.datetime.strptime(date_str, "%Y-%m-%d")
+    new_date_str = date_obj.strftime("%d-%m-%Y")
+    return new_date_str
+```
+
+返回：
+
+```python
+import unittest
+import datetime
+
+class TestDateFlip(unittest.TestCase):
+
+    def test_date_flip(self):
+        date_str = "2020-10-01"
+        result = date_flip(date_str)
+        self.assertEqual(result, "01-10-2020")
+
+        date_str = "2021-07-12"
+        result = date_flip(date_str)
+        self.assertEqual(result, "12-07-2021")
+
+        date_str = "1999-12-31"
+        result = date_flip(date_str)
+        self.assertEqual(result, "31-12-1999")
+
+if __name__ == '__main__':
+    unittest.main()
+```
