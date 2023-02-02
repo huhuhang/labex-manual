@@ -1,10 +1,33 @@
 # Python 风格统一性规范
 
-> 为确保 Python 方向实验和挑战的风格统一性，LabEx 确定了以下规范，请参考使用。
+为确保 Python 方向实验和挑战的风格统一性，LabEx 确定了以下规范，请参考使用。
+
+**首先，你需要了解 [通用规范](/basic/formatting-guide)。** 以下规范基于通用规范进行扩充。
+
+## 基础
+
+### 编码环境
+
+- 目前的实验和挑战支持的环境为 Python 3.10
+
+### 编码风格
+
+- 使用**4 个空格**缩进，而不是 `Tabs`。
+- 变量、函数和方法的名称应使用全小写字母，空格使用下划线（又称 "snake case"）。
+- 类应该用**TitleCase**命名（又称 "Camel Case"）。
+- 变量、函数和方法的名称，必须使用有意义的英文单词命名，便于理解。
+- 在 lambda 之外不能使用单字母变量名。这包括循环变量和生成式。
+- 详细的代码注释。
+
+## 实验
+
+- 参考模板：[python/lab-for-loop](https://github.com/labex-labs/templates/tree/master/python/lab-for-loop)
 
 ## 挑战
 
-- 参考模板：[python/challenge-arithmetic-games](https://github.com/labex-labs/labex-candidate/tree/master/python/challenge-arithmetic-games)
+- 参考模板：[python/challenge-arithmetic-games](https://github.com/labex-labs/templates/tree/master/python/challenge-arithmetic-games)
+
+<div className="steps-container">
 
 ### 基础代码文件
 
@@ -23,6 +46,8 @@
 3. 命名为全小写，空格用下划线分隔，如：`sum_of_cubes_test.py`。
 4. 单元测试用例文件存放在 `assets` 目录中，通过在 `index.json` 中配置 [`assets` 字段](/basic/how-to-start#assets-配置) 复制到 `/tmp` 目录中，方便测试时用户不可见。
 
-### 参考答案
+### 挑战参考答案
 
 1. 参考答案文件存放在 `solution` 目录中，名称与基础代码文件一致，如：`sum_of_cubes.py`。
+
+</div>
