@@ -18,7 +18,7 @@
 
 ### 单元测试用例
 
-1. 请使用 `unittest` 编写规范的单元测试用例。
+1. 请使用 `unittest` 编写规范的单元测试用例，可以学习和参考 [exercism/python](https://github.com/exercism/python/tree/main/exercises/practice)。
 2. 单元测试用例文件和基础代码文件一一对应，以 `_test`结尾。
 3. 命名为全小写，空格用下划线分隔，如：`sum_of_cubes_test.py`。
 4. 单元测试用例文件存放在 `assets` 目录中，通过在 `index.json` 中配置 [`assets` 字段](/basic/how-to-start#assets-配置) 复制到 `/tmp` 目录中，方便测试时用户不可见。
