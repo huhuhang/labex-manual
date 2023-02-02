@@ -34,10 +34,11 @@
 1. 尽量给用户提供基础代码文件，而不是让用户自行创建文件。特殊情况除外。
 2. 命名为全小写，空格用下划线分隔，如：`sum_of_cubes.py`。
 3. 基础代码文件中的函数名、变量名、类名等书写规范，需要包含 Type Hints 和 Docstring。
-4. Python 挑战尽量不要直接在 `verify.sh` 中使用 Shell 编写测试，而是使用 `unittest` 编写规范的单元测试用例。
-5. 基础代码文件中的函数尽量使用 `return` 返回结果，方便使用 `unittest` 编写规范的单元测试用例。
-6. 当存在规范的单元测试用例时，可以配置 `"showstderr": true`，以便在测试失败时显示详细的错误信息，方便用户 Debug。
-7. 基础代码文件存放在 `assets` 目录中，通过在 `index.json` 中配置 [`assets` 字段](/basic/how-to-start#assets-配置) 复制到环境用户目录。
+4. 需要用户补充的部分，使用 `# TODO:` 开头，并简要概述。
+5. Python 挑战尽量不要直接在 `verify.sh` 中使用 Shell 编写测试，而是使用 `unittest` 编写规范的单元测试用例。
+6. 基础代码文件中的函数尽量使用 `return` 返回结果，方便使用 `unittest` 编写规范的单元测试用例。
+7. 当存在规范的单元测试用例时，可以配置 `"showstderr": true`，以便在测试失败时显示详细的错误信息，方便用户 Debug。
+8. 基础代码文件存放在 `assets` 目录中，通过在 `index.json` 中配置 [`assets` 字段](/basic/how-to-start#assets-配置) 复制到环境用户目录。
 
 ### 单元测试用例
 
