@@ -1,5 +1,17 @@
 # ChatGPT Prompts
 
+## What is AIGC
+
+Artificial Intelligence-Generated Content (AIGC) is a new generation of information creation technology that can automatically generate content based on user requirements. It can be used to generate a variety of content, including text, images, audio, and video.
+
+We are trying to introduce AIGC into the content creation process. We hope that AIGC can help us create content more efficiently and effectively.
+
+This does not mean that professionals need not be involved. On the contrary, with the help of AI, professionals can create higher-quality content.
+
+## LabEx AIGC Workflow
+
+![LabEx AIGC](.github/assets/aigc.png)
+
 ## Export ChatGPT
 
 In most cases, we want to use ChatGPT conversation content directly, you can use the following tool to export the text in markdown format.
@@ -8,97 +20,6 @@ In most cases, we want to use ChatGPT conversation content directly, you can use
 
 Next, we will list some prompts that we have found to be quite good in use. If you have a new one, please share it in time.
 
-## Generating Labs
+## Prompts
 
-You can generate a lab for single or multiple skill points.
-
-```text
-Please help me write a hands-on programming lab with the following requirements:
-
-- the lab is about {{Python Classes and Objects}}.
-- the lab is step-by-step.
-- include code examples from simple to complex.
-- include an introduction and a summary.
-- using a markdown format.
-```
-
-```text
-Generate a hands-on programming tutorial of {{NumPy Advanced Topics}}. Including chapters: {{Linear Algebra with NumPy, Random Number Generation, Masked Arrays}}. Using markdown.
-```
-
-> `{{}}` is a placeholder for the skill point.
-
-## Generating Challenges
-
-### Single Skill
-
-You can use the prompts below to generate challenges for individual skill points, as well as answers and test cases.
-
-Challenge Prompts:
-
-```text
-Generate a programming challenge of {{Python Return Values}}, using markdown.
-Generate a complex programming challenge of {{Python Math Operators}} using markdown, include answer and test cases.
-```
-
-Answer Prompts:
-
-```text
-Generate the answer for this challenge.
-```
-
-Test Case Prompts:
-
-```text
-Generate the test case for this challenge.
-Generate {{Python}} test code for this challenge using {{unittest}}
-```
-
-## Generating Test Cases
-
-Prompts:
-
-```text
-Generate Python test code for below:
-
-import datetime
-
-
-def date_flip(date_str: str) -> str:
-    """Flip the day and month of a date string.
-
-    Args:
-        date_str (_type_): like "2020-10-01"
-
-    Returns:
-        _type_: like "01-10-2020"
-    """
-    date_obj = datetime.datetime.strptime(date_str, "%Y-%m-%d")
-    new_date_str = date_obj.strftime("%d-%m-%Y")
-    return new_date_str
-```
-
-Return:
-
-```python
-import unittest
-import datetime
-
-class TestDateFlip(unittest.TestCase):
-
-    def test_date_flip(self):
-        date_str = "2020-10-01"
-        result = date_flip(date_str)
-        self.assertEqual(result, "01-10-2020")
-
-        date_str = "2021-07-12"
-        result = date_flip(date_str)
-        self.assertEqual(result, "12-07-2021")
-
-        date_str = "1999-12-31"
-        result = date_flip(date_str)
-        self.assertEqual(result, "31-12-1999")
-
-if __name__ == '__main__':
-    unittest.main()
-```
+- [Prompts List](https://labex-dev.feishu.cn/base/bascnNz4Nqjqgqm1Nm5AYke6xxb?table=tblDE0dPE4cZ7CEV&view=vewPgOUNeW)

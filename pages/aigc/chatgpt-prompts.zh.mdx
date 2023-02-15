@@ -1,6 +1,16 @@
 # ChatGPT 提示语
 
-> 本部分内容欢迎作者参与贡献，一旦采纳会给予奖励。
+## 什么是 AIGC
+
+AIGC，即人工智能生成的内容。它可以用来生成文本、图像、音频和视频等。
+
+我们正试图将 AIGC 引入到实验和挑战内容创建过程中。我们希望 AIGC 能够帮助我们更高效地创作内容。
+
+这并不意味着专业人士不需要参与。相反，在人工智能的帮助下，专业人士可以创造更高质量的内容。
+
+## LabEx AIGC 流程
+
+![LabEx AIGC](.github/assets/aigc.png)
 
 ## 导出 ChatGPT
 
@@ -10,121 +20,6 @@
 
 接下来，我们将列出一些我们发现使用效果不错的提示语。如果你有新的，请及时分享给我们。
 
-## 生成实验
+## 提示语
 
-你可以为单个或多个技能点生成一个实验。
-
-```text
-Please help me write a hands-on programming lab with the following requirements:
-
-- the lab is about {{Python Classes and Objects}}.
-- the lab is step-by-step.
-- include code examples from simple to complex.
-- include an introduction and a summary.
-- using a markdown format.
-```
-
-> `{{}}` 是技能点占位符。
-
-## 生成挑战
-
-### 单个技能点
-
-你可以使用下面的提示语针对单个技能点生成挑战，以及答案和测试用例。
-
-Challenge 提示语:
-
-```text
-Generate a programming challenge of {{Python Return Values}}, using markdown.
-Generate a complex programming challenge of {{Python Math Operators}} using markdown, include answer and test cases.
-```
-
-答案提示语:
-
-```text
-Generate the answer for this challenge.
-```
-
-测试用例提示语:
-
-```text
-Generate the test case for this challenge.
-Generate {{Python}} test code for this challenge using {{unittest}}
-```
-
-### 明确步骤生成
-
-https://sharegpt.com/c/DmpKm0P
-
-这个挑战是关于 Python 的类，构思了 2 个步骤：
-
-1. 给出一个现成的函数，让学生改成类的写法。
-2. 让学生根据要求写一个新的类。
-
-使用 ChatGPT 创作时：
-
-首先尝试，让 ChatGPT 直接按步骤要求输出。结果如下：
-
-1. 步骤 1 的代码可以直接使用；
-2. 步骤 2，3 ChatGPT给出了类似答案的代码；
-
-可以继续追问，让 ChatGPT 基于代码生成挑战要求，结果还可以。
-
-最终重组这些段落，加上一些自定义要素，一个挑战就诞生了。😄
-
-### 先大纲后内容
-
-多步骤的挑战在生成时，我们一次性罗列的步骤要求越多，ChatGPT 越难理解。
-
-我们还有另一种思路，先让 ChatGPT 生成挑战的大纲。通过对话调整大纲至满意。再让其基于大纲来生成步骤、完整代码、单元测试用例等。最终组合成一个挑战。
-
-参考：https://sharegpt.com/c/QlwkVqV
-
-## 生成单元测试
-
-提示语：
-
-```text
-Generate Python test code for below:
-
-import datetime
-
-
-def date_flip(date_str: str) -> str:
-    """Flip the day and month of a date string.
-
-    Args:
-        date_str (_type_): like "2020-10-01"
-
-    Returns:
-        _type_: like "01-10-2020"
-    """
-    date_obj = datetime.datetime.strptime(date_str, "%Y-%m-%d")
-    new_date_str = date_obj.strftime("%d-%m-%Y")
-    return new_date_str
-```
-
-返回：
-
-```python
-import unittest
-import datetime
-
-class TestDateFlip(unittest.TestCase):
-
-    def test_date_flip(self):
-        date_str = "2020-10-01"
-        result = date_flip(date_str)
-        self.assertEqual(result, "01-10-2020")
-
-        date_str = "2021-07-12"
-        result = date_flip(date_str)
-        self.assertEqual(result, "12-07-2021")
-
-        date_str = "1999-12-31"
-        result = date_flip(date_str)
-        self.assertEqual(result, "31-12-1999")
-
-if __name__ == '__main__':
-    unittest.main()
-```
+- [详见提示语列表](https://labex-dev.feishu.cn/base/bascnNz4Nqjqgqm1Nm5AYke6xxb?table=tblDE0dPE4cZ7CEV&view=vewPgOUNeW)
