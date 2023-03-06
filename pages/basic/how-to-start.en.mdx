@@ -51,10 +51,10 @@ Look inside the folder:
 Note:
 
 - `index.json`: the config file for your scenario, including where you specify the title, description, level, and estimated time to complete, as shown to learners.
-- `intro.md` and `finish.md`: Markdown files for the text shown at the start and end of the Lab. 
+- `intro.md` and `finish.md`: Markdown files for the text shown at the start and end of the Lab.
 - `step*.md`: Markdown files for the lesson text are shown alongside each "step" of the Lab.
 - `setup.sh`: a shell script executed at the lab environment starting. The execution process and results are not visible to the user, and do not write commands that take a long time to execute.
-- `verify*.sh`: Shell scripts executed to verify the steps are complete. One step can have single or multiple verification scripts. 
+- `verify*.sh`: Shell scripts executed to verify the steps are complete. One step can have single or multiple verification scripts.
 - `assets`: (Optional) the folder includes all the example data or supporting files used in the Lab. Images of the markdown files should be [compressed](https://tinypng.com/) to reduce the size of the repository.
 - `solutions`: (Optional) the folder includes all the solution files of challenges. The lab will not include the solution files.
 
@@ -170,7 +170,7 @@ The difficulty can be one of the following:
 
 - `Beginner`: The Lab/Challenge contains only single or multiple skills **in the same skills group**.
 - `Intermediate`: The Lab/Challenge contains multiple skills from **different skill groups**. and the skills are not very difficult.
-- `Advanced`: The Lab/Challenge contains multiple skills from **different subjects or projects**. and the skills are more difficult. 
+- `Advanced`: The Lab/Challenge contains multiple skills from **different subjects or projects**. and the skills are more difficult.
 
 _Our skills structure: `Skill` > `Skill Group` > `Subject` > `Project`. e.g: `cd` > `Directory Operations` > `Linux Commands` > `Linux`_
 
@@ -272,10 +272,24 @@ The example below copies over three specific assets. Instead of using the `*` wi
 
 Keep your assets lightweight; each is limited to 9 MB per file. There is no limit to the number of assets, but using more assets will increase the loading time of the Lab.
 
-## Backend fields
+## Backend Configuration
 
-The `backend` item specifies the backend of the lab. Now only support:
+`Backend` is the environment configuration for experiments and challenges, and must be an official name provided. Currently supported environments include:
 
-- `vnc-ubuntu:2004`
-- `webide-ubuntu:2004`
-- `kvm-ubuntu:2204`
+- `vnc-ubuntu:2204`
+- `webide-ubuntu:2204`
+- `vnc-instance-ubuntu:2204`
+- `webide-instance-ubuntu:2204`
+
+Environment explanations are as follows:
+
+1.  `vnc` refers to an environment that defaults to a GUI desktop after startup, and `webide` refers to an environment that defaults to VS Code after startup. The two are essentially the same, with only different default views after startup.
+2.  `instance` refers to a new virtual machine instance (cloud host) after startup, and does not include `instance` which refers to a new container instance (Docker).
+3.  `ubuntu:2204` refers to the operating system being Ubuntu 22.04 after startup, and currently only Ubuntu 22.04 is supported.
+
+The recommended selections are as follows:
+
+1.  If the experiment/challenge requires a GUI environment, or **will not involve a lot of code file editing operations** (writing a lot of code in VNC has a poor experience), it is recommended to use the `vnc` desktop environment.
+2.  If the experiment/challenge does not require a GUI environment, or **will involve a lot of code file editing operations**, it is recommended to use the `webide` code editor environment.
+3.  In most cases, the default is to use a non-cloud host environment, that is, without `instance`, because the startup time of the cloud host environment is longer and the cost of the cloud host environment is high, which is not suitable for a large number of experiments/challenges.
+4.  If the experiment/challenge does not support running in a container environment, or requires using the `instance` cloud host environment. For example, Docker-related experiments/challenges cannot be completed in a Docker container environment and require a cloud host.

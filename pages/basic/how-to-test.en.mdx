@@ -1,1 +1,29 @@
 # How to Test
+
+> Before reading this section, make sure you have read the How to Submit section.
+
+## Test Address
+
+After submitting a PR, it will automatically trigger content synchronization to the LabEx online platform, and a test address will be generated in the PR's comment section.
+
+![PR Sync](.github/assets/pr-sync.png)
+
+If this is your first submission, you need to register a LabEx account and click the "Join Course" button in the upper right corner to start testing.
+
+If there are formatting errors in your content (especially in the `index.json` configuration), it may cause synchronization failure, and you will see the prompt **Error in PR synchronization!**.
+
+![PR Sync Error](.github/assets/pr-sync-error.png)
+
+Please carefully read the error prompt and modify your content accordingly. For example, in the prompt above, it can be seen that the `description` field in `index.json` is required, so you need to add it in `index.json`.
+
+After submitting new changes, a **resynchronization will be automatically triggered**.
+
+![PR Resync](.github/assets/pr-resync.png)
+
+## Testing Requirements
+
+1. Please make sure that you have followed all the requirements in this manual (content organization, naming conventions, formatting requirements, etc.) as well as the corresponding style guide for the direction you are working on.
+2. You can refer to the [Acceptance Criteria](https://labex-dev.feishu.cn/sheets/shtcnYuVte2FpZTcDvlFT7puLRc?sheet=XyETQX) for testing to ensure that your content meets the requirements.
+3. Test your content thoroughly from a **user's perspective** in the online environment, step by step, to ensure that there are no omissions or errors.
+4. Ensure that the `verify.sh` script returns the correct results when the user's operation is correct, and returns the correct results when the operation is incorrect.
+5. After completing the testing, please add the `Test Completed` label to the PR (or comment `@huhuhang` if unable to add) so that we can identify it for the final review.
