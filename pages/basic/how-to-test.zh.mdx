@@ -1,0 +1,28 @@
+# 如何测试
+
+> 阅读本章节前，确保已经阅读了 [如何提交](how-to-submit) 章节。
+
+## 测试地址
+
+当你提交了一个 PR 后，会自动触发内容同步到 LabEx 线上，并在 PR 的评论区生成一个测试地址。
+
+![PR Sync](.github/assets/pr-sync.png)
+
+如果你是首次提交，点击进入课程后，需要自己注册一个 LabEx 帐户，然后点击右上角的“加入课程”按钮，即可开始测试。
+
+如果你的内容存在格式错误（尤其是 `index.json` 配置错误），可能会导致同步失败，你会看到 **Error in PR synchronization!** 的提示。
+
+![PR Sync Error](.github/assets/pr-sync-error.png)
+
+请仔细阅读错误提示，根据提示修改你的内容。例如上方的提示中能看出来，`index.json` 中的 `description` 字段是必填的，所以你需要在 `index.json` 中添加。
+
+提交新的更改后，会**自动触发重新同步**。
+
+![PR Resync](.github/assets/pr-resync.png)
+
+## 测试要求
+
+1. 请确保你遵循了本手册的各种要求（内容组织结构、命名规范、格式要求等），以及相应方向的风格一致性指南。
+2. 可以对照 [验收标准](https://labex-dev.feishu.cn/sheets/shtcnYuVte2FpZTcDvlFT7puLRc?sheet=XyETQX) 进行测试，确保你的内容符合要求。
+3. 以**用户视角**将内容在线上环境完整地学习一遍，确保没有遗漏、没有错误。
+4. 确保 **verify.sh** 脚本在用户操作正确，以及操作错误时能够正确地返回结果。
