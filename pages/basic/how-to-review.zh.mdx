@@ -7,19 +7,27 @@
 Review 内容时，同样需要借助于 Pull Requests 提供的功能完成。
 
 1. 打开 Pull Requests 合并请求；
-2. 点击  Files changed 一栏查看提交内容。
+2. 点击 Files changed 一栏查看提交内容。
+
+### 批注意见
 
 Review 的方法非常简单，你需要将批注和反馈记录下来。
 
-如下图所示，首先可以通过 + 来选择你需要批注的段落，然后填写批注内容，最后点击 Start a review 即可。
+如下图所示，首先可以通过 + 来选择你需要批注的段落，然后填写批注内容，最后点击 **Start a review** 即可。
 
-![Start a Review](.github/assets/start-a-review.png)
+![Submit Review](.github/assets/review.png)
 
-当你批注完所有内容之后，点击界面右上角的 Review changes → Request changes 即可将 Review 结果反馈给原作者。
+当你批注完所有内容之后，点击界面右上角的 **Review changes → Request changes** 即可将 Review 结果反馈给原作者。
 
 如果内容不需要任何修改，即可选择 Approve 批准合并。
 
-![Submit Review](.github/assets/submit-review.png)
+### 合并 PR
+
+如果你是 LabEx L3 级别的作者，将有权限直接合并 PR。Approve 后，可以选择以 **Squash and merge** 的方式合并 PR。合并后，你需要同时 **Close** 掉对应的 Issues。
+
+![Merge PR](.github/assets/merge-pr.png)
+
+如果 LabEx 尚未授权你直接合并 PR，Review 结束后，请联系 LabEx 的同事进行确认并由 LabEx 执行合并操作。
 
 ## Review 的前提
 
@@ -41,7 +49,7 @@ Review 的方法非常简单，你需要将批注和反馈记录下来。
 如果 PR 不存在【直接驳回修改】的问题，那么接下来，你需要仔细完成 Review。
 
 1. 开启测试环境，确保内容可以在环境中正常运行，特别需要注意：
-   - lab/challenge 选择了合适的环境，参考 [Backend 配置](how-to-start#backend-%E9%85%8D%E7%BD%AE)
+   - lab/challenge 选择了合适的环境，参考 [Backend 配置](how-to-start)
    - `verify.sh` 检测脚本，不会直接 PASS，能够正常检测出错误；
    - 内容格式在线上环境渲染无问题。
 2. 需确保 markdown 格式正确，参考 [格式规范](formatting-guide)
@@ -51,3 +59,4 @@ Review 的方法非常简单，你需要将批注和反馈记录下来。
    - `description` 不会太长或太短；
    - `difficulty` 难度选择正确，`time` 时间估算合理；
 4. 如果是 challenge，需要检查 `solution` 答案/解决思路是否完备，此项为 LabEx Pro 付费特性。
+5. 确保以**用户视角**去 Review 内容，从用户的角度去感受内容的连贯性，是否有不明晰的地方。
