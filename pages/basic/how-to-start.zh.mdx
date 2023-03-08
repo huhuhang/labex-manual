@@ -246,7 +246,7 @@ Details 配置项在 `index.json` 中非常重要，包含以下内容：
 
 它在后台运行，直到返回 0 退出代码（成功），这时，该步骤被标记为完成，实验继续显示下一个步骤。
 
-#### Verify 脚本
+#### Verify.sh
 
 Verify 步骤检测脚本是 LabEx 的重要特性之一，用户的每一步操作，系统都可以自动检测。你可以简单理解 Verify 检测脚本为用户代码的单元测试。
 
@@ -271,7 +271,7 @@ Verify 脚本的基础是 Shell 命令，因为要通过 SSH 连接到用户环�
 
 使⽤混淆矩阵来表示⽤户答案的正确性和检测判定的正确性。
 
-![Prettier](.github/assets/matrix.png)
+<img width="300px" src=".github/assets/matrix.png">
 
 编写 Verify 脚本时，**要努⼒降低 FP 和 FN。 宁可 FP，也不要 FN。**
 
