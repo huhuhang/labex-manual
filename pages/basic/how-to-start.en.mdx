@@ -244,6 +244,35 @@ It runs in the background until it returns an exit code of zero (success), at wh
 
 No parameters are passed to the verification script, and the script is expected to return the standard zero for success or non-zero for failure.
 
+##### verify.sh
+
+The Verify step detection script is one of LabEx's important features, and the system can automatically detect every step of the user's operations. You can simply understand the Verify detection script as a unit test of user code.
+
+1. In challenges, the Verify detection script needs to be very rigorous and can correctly determine whether the user has done it right or wrong. Only the correct answer can pass, while the wrong answer will report an error and throw a prompt.
+2. In labs, the Verify detection script can be relaxed appropriately, usually keyword detection to see if the relevant operations have been completed. Labs do not need to spend as much time debugging the Verify script as challenges, and the detection in labs is to give users a sense of interactive learning. It is important for the system to provide feedback to users when they learn on the computer.
+
+**The verification process is roughly as follows:**
+
+1. The user completes the corresponding operation in the environment based on the content description.
+2. The user clicks the next step, and the background detection script is triggered automatically and executed one by one (the execution process is invisible to the user, and the execution error results can be configured by `showstderr` whether visible to the user).
+3. The script execution process is the system **connecting to the user environment through SSH and executing it in the environment with default user permissions**. The detection script is a Bash command.
+4. An execution error will be thrown when there is an error, and it will pass when all executions are completed.
+
+The foundation of Verify script is Shell command, because it needs to be connected to the user environment through SSH to execute, but the content of execution can be customized, and the flexibility is very high:
+
+1. Taking Python as an example, we can use unittest to write complete unit tests for user code, and then execute the unit tests in the Verify script. This means that the user's code detection is done by Python unit test code, and the Shell script only triggers the execution of the unit test.
+2. Similar to Python, Junit is recommended for Java unit testing, and third-party tools can be used for front-end automation testing.
+3. Database: You can use a proficient programming language to connect to the database to access data for judgment. You can also use database logs for detection.
+4. API/HTTP requests: Use curl or proficient programming language to build HTTP requests.
+
+**Principles of accurate detection:**
+
+Use a confusion matrix to represent the correctness of the user's answer and the correctness of the detection judgment.
+
+![matrix](.github/assets/matrix.png)
+
+When writing the Verify script, **efforts should be made to reduce FP and FN. It is better to have FP than FN.**
+
 #### Assets
 
 The `assets` item specifies which assets you want to be copied to the lab environment at runtime. The default name of your lab environment is `host01`, and you can copy all files to the home folder of the default login user.
