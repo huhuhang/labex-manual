@@ -1,0 +1,53 @@
+# 如何 Review
+
+欢迎你受邀参与 LabEx 的 Review 工作，以下是一些注意事项。
+
+## Review 的方法
+
+Review 内容时，同样需要借助于 Pull Requests 提供的功能完成。
+
+1. 打开 Pull Requests 合并请求；
+2. 点击  Files changed 一栏查看提交内容。
+
+Review 的方法非常简单，你需要将批注和反馈记录下来。
+
+如下图所示，首先可以通过 + 来选择你需要批注的段落，然后填写批注内容，最后点击 Start a review 即可。
+
+![Start a Review](.github/assets/start-a-review.png)
+
+当你批注完所有内容之后，点击界面右上角的 Review changes → Request changes 即可将 Review 结果反馈给原作者。
+
+如果内容不需要任何修改，即可选择 Approve 批准合并。
+
+![Submit Review](.github/assets/submit-review.png)
+
+## Review 的前提
+
+1. 确认 PR 已经由作者完成自测，并由作者添加了 `Test Completed` 标签。
+2. PR 所关联 Issues 由你打开，或者 PR 由 LabEx 分配给你 Review。
+
+## 直接驳回修改
+
+以下情况，你可以直接驳回 PR 要求作者修改，避免浪费时间：
+
+1. PR 提交包含多个 lab/challenge，我们规定，一个 PR 中有且仅能包含 1 个 lab/challenge 的新增/修改；
+2. 同一个作者在新的 PR 中，出现之前反复批注过的问题（≥ 2 次）；
+3. PR 中出现非常明显的重大问题，导致整个 lab/challenge 不具备仔细 Review 的价值。
+
+以上情况，可以简单总结问题后直接 Request changes，要求作者大修。
+
+## Review 的细节
+
+如果 PR 不存在【直接驳回修改】的问题，那么接下来，你需要仔细完成 Review。
+
+1. 开启测试环境，确保内容可以在环境中正常运行，特别需要注意：
+   - lab/challenge 选择了合适的环境，参考 [Backend 配置](how-to-start#backend-%E9%85%8D%E7%BD%AE)
+   - `verify.sh` 检测脚本，不会直接 PASS，能够正常检测出错误；
+   - 内容格式在线上环境渲染无问题。
+2. 需确保 markdown 格式正确，参考 [格式规范](formatting-guide)
+3. 需确保 `index.json` 配置正确，参考 [index.json](how-to-start#indexjson)，特别需要注意：
+   - `skills` 绑定合理，且无明显遗漏。【特别重要】
+   - `verify` 脚本是否合理，是否存在检测过于粗糙，不够细致，或者不够严谨的情况。【特别重要】
+   - `description` 不会太长或太短；
+   - `difficulty` 难度选择正确，`time` 时间估算合理；
+4. 如果是 challenge，需要检查 `solution` 答案/解决思路是否完备，此项为 LabEx Pro 付费特性。
