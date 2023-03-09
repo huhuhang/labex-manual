@@ -1,0 +1,37 @@
+# 如何修订提交
+
+当你的 PR 被 Review 完毕后，你需要根据 Reviewer 的意见进行修订，然后再次提交。
+
+你不需要重新创建 PR，只需要更新即可，更新方法如下：
+
+## 更新 PR
+
+### 切换到分支
+
+首先，需要切换到当前 PR 的发起分支。这也就是为什么我们要求每个 PR 只包含 1 个 lab/challenge 的内容，这样你的修改会更加清晰，减少冲突。
+
+![Base Branch](.github/assets/base-branch.png)
+
+你可以从 PR 网页上找到发起分支的名称，如果你忘记了的话。
+
+1. 打开终端；
+2. 切换到仓库目录下；
+3. 使用命令切换到当前 PR 的发起分支:
+
+   ```bash
+   git checkout <branch-name>
+   ```
+
+### 更新代码并提交
+
+接下来的步骤，和之前的一致，详见 [如何提交](how-to-submit)。
+
+1. 使用本地编辑器更新内容；
+2. 添加 commit，并将内容**提交到当前分支**；
+3. ~~重新提交 PR。~~【你不需要重新提交 PR，因为一个 PR 是从发起分支 → 目标分支，你对发起分支的修改，会自动附加到已经开启的 PR 中，不信你就去瞅瞅。】
+
+### 重新申请 Review
+
+提交完成之后，请前往 PR 网页，点击 Re-request review 按钮，Reviewer 才会重新收到提醒。
+
+![Base Branch](.github/assets/re-request-review.png)
