@@ -39,7 +39,7 @@ Currently, we have defined 3 types of Review Tag, which are:
 - **No Repair**:
   1. No modification is required, can be merged directly.
 
-The Review Tag will be feedback to the [Author Capability Model](https://labex-dev.feishu.cn/sheets/shtcnYuVte2FpZTcDvlFT7puLRc?sheet=a5Gn4d):
+The Review Tag will be feedback to the [↗ Author Capability Model](https://labex-dev.feishu.cn/sheets/shtcnYuVte2FpZTcDvlFT7puLRc?sheet=a5Gn4d):
 
 1. No Repair and Minor Repair mean that LabEx has less review effort and the author is more capable and easy-to-use, so it is more likely to be upgraded naturally.
 2. A cumulative number of Major Repairs means that LabEx has more review effort on the author's content, the author is more difficult to upgrade, and even eliminated.
@@ -74,11 +74,11 @@ In the above cases, you can simply summarize the problem and directly Request ch
 If the PR does not have the problem of [directly rejecting modification], then next, you need to carefully complete the Review.
 
 1. Turn on the testing environment to ensure that the content can run normally in the environment, paying special attention to:
-   - The lab/challenge has selected the appropriate environment, refer to [Backend Configuration](how-to-start)
+   - The lab/challenge has selected the appropriate environment, refer to [↗ Backend Configuration](how-to-start)
    - The `verify.sh` detection script will not directly PASS and can detect errors normally;
    - The content format is rendered without problems in the online environment.
-2. Ensure that the markdown format is correct, refer to [Formatting Guide](formatting-guide)
-3. Ensure that the `index.json` configuration is correct, refer to [index.json](how-to-start#indexjson), paying special attention to:
+2. Ensure that the markdown format is correct, refer to [↗ Formatting Guide](formatting-guide)
+3. Ensure that the `index.json` configuration is correct, refer to [↗ index.json](how-to-start#indexjson), paying special attention to:
    - The `skills` are bound reasonably and there are no obvious omissions. [**Very important**]
    - The `verify` script is reasonable and there is no detection that is too rough, not detailed enough, or not rigorous enough. [**Very important**]
    - The `description` is not too long or too short;
@@ -86,4 +86,4 @@ If the PR does not have the problem of [directly rejecting modification], then n
 4. If it is a challenge, check if the `solution` answer/resolution is complete, this is a paid feature of LabEx Pro.
 5. Ensure to **review the content from the user's perspective**, and feel the coherence of the content from the user's perspective and whether there are unclear areas.
 6. Give a man a fishing rod, and if the author has missed something, it is best to add a link to the LabEx manual/regulation/document to help the author learn on their own. If the authors repeatedly encounter problems, consider adding related content to the LabEx manual.
-7. Review completed, add the [Review Tag](#review-tag) to mark the modification type of the current PR.
+7. Review completed, add the [↗ Review Tag](#review-tag) to mark the modification type of the current PR.
