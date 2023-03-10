@@ -27,7 +27,7 @@ const config: DocsThemeConfig = {
   faviconGlyph: "✍️",
   banner: {
     key: "instructor",
-    text: <a href="/others/contribute">✍️ Become an Instructor. Read more →</a>,
+    text: <a href="/others/contribute">✍️ Become an Instructor →</a>,
   },
   footer: {
     component: null,
