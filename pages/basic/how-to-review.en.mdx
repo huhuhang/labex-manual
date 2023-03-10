@@ -1,1 +1,89 @@
-# How to Review
+# PR Review
+
+You are invited to participate in the review work of LabEx. Here are some notes to keep in mind.
+
+## Review Method
+
+To review the content, you need to use the features provided by Pull Requests.
+
+1. Open the Pull Requests merge request;
+2. Click the Files changed tab to view the submission content.
+
+### Feedback Comments
+
+The review method is very simple, you need to record the annotations and feedback.
+
+As shown in the figure below, you can first select the paragraph you need to annotate by clicking the +, then fill in the annotation content, and finally click Start a review.
+
+![Submit Review](.github/assets/review.png)
+
+After you have annotated all the content, click the **Review changes → Request changes** button in the upper right corner of the interface to feedback the review results to the original author.
+
+If no modification is needed, you can choose Approve to approve the merge.
+
+### Review Tag
+
+After reviewing the PR, you need to categorize the PR and add our defined Review Tag. The purpose of categorization is to facilitate LabEx to count the amount of work in the review.
+
+![Review Tag](.github/assets/review-tag.png)
+
+Currently, we have defined 3 types of Review Tag, which are:
+
+- **Major Repair**:
+  1. There is a structural problem with a single lab/challenge, users cannot learn normally;
+  2. There is a knowledge error (code/content) in a single lab/challenge, conveying methods and theories that violate the facts to users;
+  3. There is a problem with the detection script in a single lab/challenge, users can pass directly or cannot pass;
+  4. A single lab/challenge has more than 10 places that need to be modified cumulatively.
+- **Minor Repair**:
+  1. Other situations except for major repairs.
+- **No Repair**:
+  1. No modification is required, can be merged directly.
+
+The Review Tag will be feedback to the [Author Capability Model](https://labex-dev.feishu.cn/sheets/shtcnYuVte2FpZTcDvlFT7puLRc?sheet=a5Gn4d):
+
+1. No Repair and Minor Repair mean that LabEx has less review effort and the author is more capable and easy-to-use, so it is more likely to be upgraded naturally.
+2. A cumulative number of Major Repairs means that LabEx has more review effort on the author's content, the author is more difficult to upgrade, and even eliminated.
+
+### Merge PR
+
+If you are a LabEx L3 level author, you will have the authority to directly merge the PR. After Approve, you can choose to merge the PR in the form of **Squash and merge**. After the merge, you need to **Close** the corresponding Issues.
+
+![Merge PR](.github/assets/merge-pr.png)
+
+If LabEx has not authorized you to directly merge the PR, after the review is completed, please contact a colleague from LabEx for confirmation and execute the merge operation by LabEx.
+
+## Review Process
+
+### Start Review
+
+1. Confirm that the PR has been self-tested by the author and has been tagged with "Test Completed" by the author.
+2. The Issues related to the PR are opened by you or assigned to you for review by LabEx.
+
+### Direct Rejection
+
+You can directly reject the PR and request the author to modify it to avoid wasting time in the following cases:
+
+1. The PR submission contains multiple labs/challenges, and we stipulate that a new or modified lab/challenge can only contain 1 lab/challenge in a PR.
+2. The same author repeatedly encounters problems (≥2 times) in new PRs that have been repeatedly annotated before.
+3. There are very obvious major problems in the PR, making the entire lab/challenge not valuable for careful review.
+
+In the above cases, you can simply summarize the problem and directly Request changes, requiring the author to make major repairs.
+
+### Special Attention
+
+If the PR does not have the problem of [directly rejecting modification], then next, you need to carefully complete the Review.
+
+1. Turn on the testing environment to ensure that the content can run normally in the environment, paying special attention to:
+   - The lab/challenge has selected the appropriate environment, refer to [Backend Configuration](how-to-start)
+   - The `verify.sh` detection script will not directly PASS and can detect errors normally;
+   - The content format is rendered without problems in the online environment.
+2. Ensure that the markdown format is correct, refer to [Formatting Guide](formatting-guide)
+3. Ensure that the `index.json` configuration is correct, refer to [index.json](how-to-start#indexjson), paying special attention to:
+   - The `skills` are bound reasonably and there are no obvious omissions. [**Very important**]
+   - The `verify` script is reasonable and there is no detection that is too rough, not detailed enough, or not rigorous enough. [**Very important**]
+   - The `description` is not too long or too short;
+   - The difficulty level is selected correctly and the `time` is estimated reasonably;
+4. If it is a challenge, check if the `solution` answer/resolution is complete, this is a paid feature of LabEx Pro.
+5. Ensure to **review the content from the user's perspective**, and feel the coherence of the content from the user's perspective and whether there are unclear areas.
+6. Give a man a fishing rod, and if the author has missed something, it is best to add a link to the LabEx manual/regulation/document to help the author learn on their own. If the authors repeatedly encounter problems, consider adding related content to the LabEx manual.
+7. Review completed, add the [Review Tag](#review-tag) to mark the modification type of the current PR.

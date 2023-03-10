@@ -1,1 +1,39 @@
-# How to Resubmit
+## Revision Submission
+
+After your PR has been reviewed, you need to revise it based on the reviewer's feedback and resubmit it.
+
+You don't need to create a new PR, just update it. The update method is as follows:
+
+## Update PR
+
+### Switch to the branch
+
+First, you need to switch to the branch that the current PR was initiated from. That's why we require each PR to only contain 1 lab/challenge content, so your changes will be clearer and conflicts will be reduced.
+
+You can find the name of the branch from the PR page if you forget it.
+
+1. Open the terminal;
+2. Switch to the repository directory;
+3. Use the command to switch to the current PR's initiated branch:
+
+   ```bash
+   git checkout <branch-name>
+   ```
+
+### Update the code and submit
+
+The next steps are the same as before, see [How to Submit](how-to-submit).
+
+1. Update the content using a local editor;
+2. Add a commit and **submit the content to the current branch**;
+3. ~~Resubmit the PR.~~ **You don't need to resubmit the PR**, because a PR is from **initiated branch → target branch**, your changes to the initiated branch will be automatically added to the already opened PR. There is only one open status PR for the same **initiated branch → target branch**.
+
+### Re-request Review
+
+After submitting, go to the PR page and click the **Re-request review** button next to the reviewer's avatar, and the reviewer will receive a reminder.
+
+![Base Branch](.github/assets/re-request-review.png)
+
+Revisions may take multiple rounds, and each round needs to follow this process.
+
+Each round of review will consume the reviewer's time and incur actual manpower costs. You need to continually strive for improvement and get Approved after the first round of review if possible.
