@@ -4,7 +4,7 @@ import { DocsThemeConfig } from "nextra-theme-docs";
 const config: DocsThemeConfig = {
   useNextSeoProps() {
     return {
-      titleTemplate: "%s – LabEx",
+      titleTemplate: "%s – LabEx Guidelines",
     };
   },
   logo: (
@@ -27,7 +27,7 @@ const config: DocsThemeConfig = {
   faviconGlyph: "✍️",
   banner: {
     key: "instructor",
-    text: <a href="/others/contribute">✍️ Become an Instructor →</a>,
+    text: <a href="/others/contribute">✍️ Become an Instructor 成为作者 →</a>,
   },
   footer: {
     component: null,
