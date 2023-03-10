@@ -21,7 +21,7 @@ const config: DocsThemeConfig = {
     <>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta property="og:title" content="LabEx Guidelines" />
-      <meta property="og:description" content="Join Us!" />
+      <meta property="og:description" content="Become an Instructor 成为作者" />
     </>
   ),
   faviconGlyph: "✍️",
