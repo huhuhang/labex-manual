@@ -25,6 +25,12 @@ const config: DocsThemeConfig = {
     </>
   ),
   faviconGlyph: "✍️",
+  banner: {
+    key: 'instructor',
+    text: <a href="others/contribute">
+      👋 Become an Instructor. Read more →
+    </a>,
+  },
   footer: {
     component: false,
   },
