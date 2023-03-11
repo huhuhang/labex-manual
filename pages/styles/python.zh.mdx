@@ -2,7 +2,7 @@
 
 为确保 Python 方向实验和挑战的风格统一性，LabEx 确定了以下规范，请参考使用。
 
-**首先，你需要了解 [通用规范](/basic/formatting-guide)。** 以下规范基于通用规范进行扩充。
+**首先，你需要了解 [通用规范 ↗](/basic/formatting-guide)。** 以下规范基于通用规范进行扩充。
 
 ## 基础
 
@@ -21,11 +21,11 @@
 
 ## 实验
 
-- 参考模板：[python/lab-for-loop](https://github.com/labex-labs/templates/tree/master/python/lab-for-loop)
+- 参考模板：[python/lab-for-loop ↗](https://github.com/labex-labs/templates/tree/master/python/lab-for-loop)
 
 ## 挑战
 
-- 参考模板：[python/challenge-arithmetic-games](https://github.com/labex-labs/templates/tree/master/python/challenge-arithmetic-games)
+- 参考模板：[python/challenge-arithmetic-games ↗](https://github.com/labex-labs/templates/tree/master/python/challenge-arithmetic-games)
 
 <div className="steps-container">
 
@@ -38,14 +38,14 @@
 5. Python 挑战尽量不要直接在 `verify.sh` 中使用 Shell 编写测试，而是使用 `unittest` 编写规范的单元测试用例。
 6. 基础代码文件中的函数尽量使用 `return` 返回结果，方便使用 `unittest` 编写规范的单元测试用例。
 7. 当存在规范的单元测试用例时，可以配置 `"showstderr": true`，以便在测试失败时显示详细的错误信息，方便用户 Debug。
-8. 基础代码文件存放在 `assets` 目录中，通过在 `index.json` 中配置 [`assets` 字段](/basic/how-to-start#assets-配置) 复制到环境用户目录。
+8. 基础代码文件存放在 `assets` 目录中，通过在 `index.json` 中配置 [assets 字段 ↗](/basic/how-to-start#assets-配置) 复制到环境用户目录。
 
 ### 单元测试用例
 
-1. 请使用 `unittest` 编写规范的单元测试用例，可以学习和参考 [exercism/python](https://github.com/exercism/python/tree/main/exercises/practice)。
+1. 请使用 `unittest` 编写规范的单元测试用例，可以学习和参考 [exercism/python ↗](https://github.com/exercism/python/tree/main/exercises/practice)。
 2. 单元测试用例文件和基础代码文件一一对应，以 `_test`结尾。
 3. 命名为全小写，空格用下划线分隔，如：`sum_of_cubes_test.py`。
-4. 单元测试用例文件存放在 `assets` 目录中，通过在 `index.json` 中配置 [`assets` 字段](/basic/how-to-start#assets-配置) 复制到 `/tmp` 目录中，方便测试时用户不可见。
+4. 单元测试用例文件存放在 `assets` 目录中，通过在 `index.json` 中配置 [assets 字段 ↗](/basic/how-to-start#assets-配置) 复制到 `/tmp` 目录中，方便测试时用户不可见。
 
 ### 挑战参考答案
 

@@ -5,8 +5,8 @@
 To author interactive labs and challenges, you must already be familiar with the following:
 
 - Using the Linux command-line interface (Specifically, a bash terminal).
-- [↗ Git and GitHub](https://docs.github.com/en/get-started/using-git/about-git) (Cloning a repository, making commits, and pushing commits to a server).
-- [↗ Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) (Writing text and basic formatting syntax).
+- [Git and GitHub ↗](https://docs.github.com/en/get-started/using-git/about-git) (Cloning a repository, making commits, and pushing commits to a server).
+- [Markdown ↗](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) (Writing text and basic formatting syntax).
 - JSON (Config file format).
 
 Of course, you'll also need expertise in the subject matter of your labs.
@@ -15,7 +15,7 @@ Of course, you'll also need expertise in the subject matter of your labs.
 
 We have created a GitHub repository that contains multiple folders, with one folder for each Lab.
 
-[↗ View Storage Structure](https://github.com/labex-labs/scenarios)
+[View Storage Structure ↗](https://github.com/labex-labs/scenarios)
 
 ```
 repo-name
@@ -55,10 +55,10 @@ Note:
 - `step*.md`: Markdown files for the lesson text are shown alongside each "step" of the Lab.
 - `setup.sh`: a shell script executed at the lab environment starting. The execution process and results are not visible to the user, and do not write commands that take a long time to execute.
 - `verify*.sh`: Shell scripts executed to verify the steps are complete. One step can have single or multiple verification scripts.
-- `assets`: (Optional) the folder includes all the example data or supporting files used in the Lab. Images of the markdown files should be [↗ compressed](https://tinypng.com/) to reduce the size of the repository.
+- `assets`: (Optional) the folder includes all the example data or supporting files used in the Lab. Images of the markdown files should be [compressed ↗](https://tinypng.com/) to reduce the size of the repository.
 - `solutions`: (Optional) the folder includes all the solution files of challenges. The lab will not include the solution files.
 
-Most of the configuration items in the `index.json` file are already written, you can use the [↗ LabEx CLI](https://github.com/labex-labs/labex-cli) to initialize a blank lab/challenge and then modify it.
+Most of the configuration items in the `index.json` file are already written, you can use the [LabEx CLI ↗](https://github.com/labex-labs/labex-cli) to initialize a blank lab/challenge and then modify it.
 
 ## Step Content
 
@@ -66,7 +66,7 @@ The `step*.md` file is the content of the step. The content of the step is writt
 
 Some notes:
 
-- A single step should contain the content of only [↗ One Main Skill Point](skill-tree).
+- A single step should contain the content of only [One Main Skill Point ↗](skill-tree).
 - Long content should be broken down into smaller steps.
 - The steps should include code exercises. The theoretical explanation should be integrated into the process of code practice.
 
@@ -160,7 +160,7 @@ The fields in `index.json` are explained in detail.
 
 There are five basic fields in `index.json`:
 
-1. `type`: The type of scenario must be `lab` or `challenge`. [↗ See more details](labs-and-challenges)
+1. `type`: The type of scenario must be `lab` or `challenge`. [See more details ↗](labs-and-challenges)
 2. `title`: The title of the scenario. Usually, the title is the same as the folder name.
 3. `description`: The description of the scenario, usually, 10 to 30 characters.
 4. `time`: Estimated completion time in minutes, usually in multiples of 5.
@@ -174,7 +174,7 @@ The difficulty can be one of the following:
 
 _Our skills structure: `Skill` > `Skill Group` > `Subject` > `Project`. e.g: `cd` > `Directory Operations` > `Linux Commands` > `Linux`_
 
-[↗ About Skills Tree](skill-tree)
+[About Skills Tree ↗](skill-tree)
 
 ### Details fields
 
@@ -235,7 +235,7 @@ The parameters of the steps are:
    3. `hint`: The message when the script is unsuccessful will be displayed to the learner, so it should be clear and concise.
    4. `timeout`: Default `0`, which means no limit on the execution time of the script, if set, it means a limit on the number of seconds to execute.
    5. `showstderr`: Default is `false`, set to true to show stderr returned by the script, and no longer displays hint.
-4. `skills`: The skills of the step. it comes from the official skills tree. [↗ See more details](skill-tree).
+4. `skills`: The skills of the step. it comes from the official skills tree. [See more details ↗](skill-tree).
 5. `layout`: (Optional) The layout of the step, must be `doc-workbench-split` or `doc-fullscreen`. Intro and finish step default to `doc-fullscreen`, other steps default to `doc-workbench-split` if not filled.
 
 The verification script is executed when the learner completes a step and clicks the `Next` button.

@@ -5,8 +5,8 @@
 要编写交互式实验和挑战，你必须已经熟悉以下内容：
 
 - 使用 Linux 的命令行界面（特别是 Bash 终端）。
-- [↗ Git 和 GitHub](https://docs.github.com/en/get-started/using-git/about-git) 克隆仓库，进行提交，并将提交推送到服务器上。
-- [↗ Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) 编写文本和基本格式化语法。
+- [Git 和 GitHub ↗](https://docs.github.com/en/get-started/using-git/about-git) 克隆仓库，进行提交，并将提交推送到服务器上。
+- [Markdown ↗](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) 编写文本和基本格式化语法。
 - JSON 配置文件格式。
 
 当然，也同时需要你具备期望制作实验和挑战相关的专业技能知识。
@@ -15,7 +15,7 @@
 
 我们会提前创建好一个 GitHub 仓库，其中包含多个文件夹，每个实验和挑战都在一个独立的文件夹内。
 
-[↗ 查看文档存放结构](https://github.com/labex-labs/scenarios)
+[查看文档存放结构 ↗](https://github.com/labex-labs/scenarios)
 
 ```
 repo-name
@@ -55,10 +55,10 @@ repo-name
 - `step*.md`。每个步骤单独的 Markdown 文件。
 - `setup.sh`：在实验环境启动时会自动执行的一个 Shell 脚本。方便提前预安装一些软件包，或进行一些配置。**执行过程和结果用户不可见，不要编写执行时间较长的命令。**
 - `verify*.sh`：为验证步骤是否完成而执行的 Shell 脚本。一个步骤可以有单个或多个验证脚本。
-- `assets`: (可选) 该文件夹包括实验中使用的所有示例数据、配图、或其他支持文件。Markdown 文件的配图应 [↗ 压缩](https://tinypng.com/) 以减少资源库的大小。
+- `assets`: (可选) 该文件夹包括实验中使用的所有示例数据、配图、或其他支持文件。Markdown 文件的配图应 [压缩 ↗](https://tinypng.com/) 以减少资源库的大小。
 - `solutions`：（可选）该文件夹包括所有挑战的解决方案文件。实验将不包括解决方案文件。
 
-`index.json` 文件中的大部分配置项都已经写好了，你可以使用我们提供的 [↗ LabEx CLI](https://github.com/labex-labs/labex-cli) 初始化一个空白实验/挑战，然后再进行修改。
+`index.json` 文件中的大部分配置项都已经写好了，你可以使用我们提供的 [LabEx CLI ↗](https://github.com/labex-labs/labex-cli) 初始化一个空白实验/挑战，然后再进行修改。
 
 ## 步骤
 
@@ -66,7 +66,7 @@ repo-name
 
 一些注意事项：
 
-- 一个步骤应该只包含 [↗ 一个主要技能点](skill-tree)的内容。
+- 一个步骤应该只包含 [一个主要技能点 ↗](skill-tree)的内容。
 - 长的内容应该被分解成小的步骤。
 - 步骤应该都需要包括代码练习，理论解释应该被整合到代码练习的过程中。
 
@@ -160,7 +160,7 @@ repo-name
 
 `index.json` 中存在 5 个基础配置项：
 
-1. `type`: 必须为 `lab` 或者 `challenge`. [↗ 关于实验和挑战](labs-and-challenges)
+1. `type`: 必须为 `lab` 或者 `challenge`. [关于实验和挑战 ↗](labs-and-challenges)
 2. `title`: 实验/挑战的标题。通常情况下，标题与文件夹名称完全一致。
 3. `description`: 简介，通常为 10 ～ 30 个字符。
 4. `time`: 预估完成时间，单位为分钟，通常为 5 的倍数。
@@ -174,7 +174,7 @@ repo-name
 
 我们的技能树层级为: `Skill` > `Skill Group` > `Subject` > `Project`。例如：`cd` > `Directory Operations` > `Linux Commands` > `Linux`。
 
-[↗ 详见技能树介绍](skill-tree)
+[详见技能树介绍 ↗](skill-tree)
 
 ### Details 配置组
 
@@ -239,7 +239,7 @@ Details 配置项在 `index.json` 中非常重要，包含以下内容：
    3. `hint`: 如果脚本执行失败，将显示给学习者的提示信息。方便学习者解决问题。
    4. `timeout`: 超时，默认为 `0` 秒, 即不设置超时。可以指定检测超时时间。
    5. `showstderr`: 默认为 `false`，即显示自定义的 `hint` 提示信息。如果设置为 `true`，则会显示脚本执行的终端标准错误信息，不再显示自定义的 `hint` 提示信息。
-4. `skills`: 该步骤关联的技能点，需要从技能树中复制相关的 Skill IDs。[↗ 关于技能树](skill-tree)
+4. `skills`: 该步骤关联的技能点，需要从技能树中复制相关的 Skill IDs。[关于技能树 ↗](skill-tree)
 5. `layout`: (可选) 相应步骤的视图模式，必须为 `doc-workbench-split` 或 `doc-fullscreen`. 其中 Intro 和 Finish 步骤默认为 `doc-fullscreen` 全屏视图, 其他步骤默认 `doc-workbench-split` 左侧文档，右侧环境的分屏视图。
 
 当学习者完成一个步骤并点击 "下一步 "按钮时，验证脚本将被执行。
