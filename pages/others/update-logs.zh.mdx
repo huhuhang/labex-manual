@@ -2,23 +2,22 @@
 
 ## 20230323
 
-变更概述：
+**变更概述：**
 
 challenge 针对 solution 答案进行结构化管理，方便未来在产品层面，当用户在步骤无法通过时，可以获取到相应步骤的 solution 答案。
 
-变更内容：
+**变更内容：**
 
 1. 文件夹中新增 solutions 文件夹，和 asserts 文件夹平行，用于存放每个步骤的 solution 文件。
 2. index.json 中每个 step 新增 solutions 字段配置，list 类型，支持绑定本地 solutions 文件夹中的 md 文件、代码文件。
 
-与变更前的区别：
+**与变更前的区别：**
 
 1. 目前 challenge 也有 solution 答案文件夹，但命名不规范，有的作者是 solution，有的是 solutions，现统一为 solutions。
 2. 目前，通常是一个文件放全部挑战的答案，后续需要按步骤答案进行拆分。因为当用户在一个步骤无法通过时，只需要查看这个步骤的答案即可。当然，如果你的每个步骤都是独立的代码文件，也很方便，只需要绑定上相应的代码文件即可，不一定需要整理到 md 文件中。
 
-补充说明：
+**补充说明：**
 
-1. 详细说明已经更新到手册：https://www.labex.wiki/zh/basic/how-to-start
-2. labex 命令行工具也已经更新模板。
-3. lab 不受影响，lab 不需要 solutions。
-4. 已经合并到 master 分支的 challenge 我们统一修改，无需作者修改。尚未合并的 challenge，需要作者按新的要求更新。
+1. LabEx CLI 命令行工具也已经更新。
+2. lab 不受影响，lab 不需要 solutions。
+3. 已经合并到 master 分支的 challenge 我们统一修改，无需作者修改。尚未合并的 challenge，需要作者按新的要求更新。
