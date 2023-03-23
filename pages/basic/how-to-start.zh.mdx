@@ -40,7 +40,8 @@ repo-name
 │   ├── intro.md
 │   ├── setup.sh
 │   ├── solutions
-│   │   └── solution-asset.md
+│   │   └── step1-solution.md
+│   │   └── step2-solution.md
 │   ├── step1.md
 │   ├── step2.md
 │   ├── verify1-1.sh
@@ -55,8 +56,8 @@ repo-name
 - `step*.md`。每个步骤单独的 Markdown 文件。
 - `setup.sh`：在实验环境启动时会自动执行的一个 Shell 脚本。方便提前预安装一些软件包，或进行一些配置。**执行过程和结果用户不可见，不要编写执行时间较长的命令。**
 - `verify*.sh`：为验证步骤是否完成而执行的 Shell 脚本。一个步骤可以有单个或多个验证脚本。
+- `solutions`：（challenge 必选）该文件夹包括所有挑战的解决方案文件。实验将不包括解决方案文件。需要通过 `index.json` 配置进行关联。
 - `assets`: (可选) 该文件夹包括实验中使用的所有示例数据、配图、或其他支持文件。Markdown 文件的配图应 [压缩 ↗](https://tinypng.com/) 以减少资源库的大小。
-- `solutions`：（可选）该文件夹包括所有挑战的解决方案文件。实验将不包括解决方案文件。
 
 `index.json` 文件中的大部分配置项都已经写好了，你可以使用我们提供的 [LabEx CLI ↗](https://github.com/labex-labs/labex-cli) 初始化一个空白实验/挑战，然后再进行修改。
 
@@ -103,7 +104,7 @@ repo-name
           }
         ],
         "skills": ["linux/ls", "linux/cd"],
-        "solutions": ["solution1.md", "solution2.py"]
+        "solutions": ["step1-solution.md", "solution2.py"]
         "layout": "doc-workbench-split"
       },
       {
@@ -119,7 +120,7 @@ repo-name
           }
         ],
         "skills": ["linux/ls", "linux/cd"],
-        "solutions": ["solution2.md"]
+        "solutions": ["step2-solution.md"]
       }
     ],
     "intro": {
