@@ -130,7 +130,7 @@ This is a sample `index.json` file:
     "assets": {
       "host01": [
         {
-          "file": "*",
+          "file": "*.txt",
           "target": "~/"
         }
       ]
@@ -280,14 +280,14 @@ The `assets` item specifies which assets you want to be copied to the lab enviro
 ```json copy
 "assets": {
     "host01": [
-        { "file": "*", "target": "~/" }
+        { "file": "*.py", "target": "~/" }
     ]
 }
 ```
 
 Note that the target directory can be anything you want. In this example, `~/` maps to `/home/labex`, since `labex` is the default user, and `/home/labex` is that user's home directory.
 
-The example below copies over three specific assets. Instead of using the `*` wildcard to select all assets, two files are copied into the home directory, while a third is copied into `/usr/local/bin`, and its permissions are set to executable.
+The example below copies over three specific assets. Instead of using the `*.py` wildcard to select all `*.py` assets, two files are copied into the home directory, while a third is copied into `/usr/local/bin`, and its permissions are set to executable.
 
 ```json copy
 "assets": {
@@ -301,6 +301,7 @@ The example below copies over three specific assets. Instead of using the `*` wi
 
 1. For files in `assets`, unless otherwise specified, please use all lowercase letters and underscores instead of spaces to avoid issues with inconsistent file name capitalization.
 2. Ensure that your attachments are small enough, with each file limited to 9MB. There is no limit on the number of attachments, but using more attachments will increase the loading time of the experiment.
+3. Try not to use `{ "file": "*", "target": "~/" }` to copy all files as much as possible, especially when there are images required for documents in the `assets` directory. This will cause the images to be copied to the user environment and cannot be displayed correctly in the document.
 
 ## Backend
 
