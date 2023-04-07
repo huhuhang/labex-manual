@@ -1,10 +1,10 @@
-# Python 风格统一性规范
+# 风格统一性规范
+
+## Python
 
 为确保 Python 方向实验和挑战的风格统一性，LabEx 确定了以下规范，请参考使用。
 
 **首先，你需要了解 [通用规范 ↗](/basic/formatting-guide)。** 以下规范基于通用规范进行扩充。
-
-## 基础
 
 ### 编码环境
 
@@ -19,17 +19,12 @@
 - 在 lambda 之外不能使用单字母变量名。这包括循环变量和生成式。
 - 详细的代码注释。
 
-## 实验
+### 模板
 
-- 参考模板：[python/lab-for-loop ↗](https://github.com/labex-labs/templates/tree/master/python/lab-for-loop)
+- 实验：[python/lab-for-loop ↗](https://github.com/labex-labs/templates/tree/master/python/lab-for-loop)
+- 挑战：[python/challenge-arithmetic-games ↗](https://github.com/labex-labs/templates/tree/master/python/challenge-arithmetic-games)
 
-## 挑战
-
-- 参考模板：[python/challenge-arithmetic-games ↗](https://github.com/labex-labs/templates/tree/master/python/challenge-arithmetic-games)
-
-<div className="steps-container">
-
-### 基础代码文件
+### 代码文件
 
 1. 尽量给用户提供基础代码文件，而不是让用户自行创建文件。特殊情况除外。
 2. 命名为全小写，空格用下划线分隔，如：`sum_of_cubes.py`。
@@ -40,15 +35,13 @@
 7. 当存在规范的单元测试用例时，可以配置 `"showstderr": true`，以便在测试失败时显示详细的错误信息，方便用户 Debug。
 8. 基础代码文件存放在 `assets` 目录中，通过在 `index.json` 中配置 [assets 字段 ↗](/basic/how-to-start#assets-配置) 复制到环境用户目录。
 
-### 单元测试用例
+### 测试用例
 
 1. 请使用 `unittest` 编写规范的单元测试用例，可以学习和参考 [exercism/python ↗](https://github.com/exercism/python/tree/main/exercises/practice)。
 2. 单元测试用例文件和基础代码文件一一对应，以 `_test`结尾。
 3. 命名为全小写，空格用下划线分隔，如：`sum_of_cubes_test.py`。
 4. 单元测试用例文件存放在 `assets` 目录中，通过在 `index.json` 中配置 [assets 字段 ↗](/basic/how-to-start#assets-配置) 复制到 `/tmp` 目录中，方便测试时用户不可见。
 
-### 挑战参考答案
+### 参考答案
 
-1. 参考答案文件存放在 `solution` 目录中，名称与基础代码文件一致，如：`sum_of_cubes.py`。
-
-</div>
+1. 参考答案文件存放在 `solutions` 目录中，名称与基础代码文件一致，如：`sum_of_cubes.py`。最终绑定到 `index.json`。
