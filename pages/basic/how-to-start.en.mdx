@@ -324,3 +324,54 @@ The recommended selections are as follows:
 2.  If the experiment/challenge does not require a GUI environment, or **will involve a lot of code file editing operations**, it is recommended to use the `webide` code editor environment.
 3.  In most cases, the default is to use a non-cloud host environment, that is, without `instance`, because the startup time of the cloud host environment is longer and the cost of the cloud host environment is high, which is not suitable for a large number of experiments/challenges.
 4.  If the experiment/challenge does not support running in a container environment, or requires using the `instance` cloud host environment. For example, Docker-related experiments/challenges cannot be completed in a Docker container environment and require a cloud host.
+
+#### Backend Services
+
+In most cases, you only need to configure the `imageid`, but we provide more flexibility to allow customization of the experiment interface.
+
+When you only configure the `imageid`, this `imageid` will include default configurations for the experimental environment interface. For example, after starting up, you can see the following interface containing 2 tabs: "Desktop" and "SSH".
+
+![VM Tabs](.github/assets/vm-tabs.png)
+
+You cannot modify this default configuration, but you can add more types of tabs as needed by configuring Backend Services.
+
+Currently, we support the following types of services:
+
+```json,
+"backend": {
+  "imageid": "webide-ubuntu:2204",
+  "services": [
+    { "type: "kasm_vnc"},
+    { "type: "ttyd"},
+    { "type: "iframe"},
+    { "type": "iframe", "name": "HTTP 8081", "port": 8081 },
+    { "type": "iframe", "src": "https://labex.io/courses"}
+  ]
+}
+```
+
+- `kasm_vnc`: VNC interface. If your experiment/challenge requires a GUI interface, then you need to configure this type of service. The front-end defaults to displaying a 'Desktop' tab.
+- `ttyd`: SSH terminal interface. If your experiment/challenge requires an SSH terminal interface, then you need to configure this type of service. The front-end defaults to displaying an 'SSH' tab.
+- `iframe`: embedded webpage
+  - An iframe without port or src configured represents console.iframe (WebIDE), which is displayed in a 'WebIDE' tab by default;
+  - An iframe that configures container ports such as 'HTTP 8080', displays in an 'HTTP 8080' tab on the front end; when Web services are started on corresponding ports, they can be accessed through this Tab;
+  - Configuring fixed URLs for iframes such as `'https://labex.io/courses'`. Embeds a fixed webpage within a Tab - e.g., You could embed documentation here or even an online IDE.
+
+Please note that in order to simplify configuration, we will configure fixed Services in `imageid`, also selected from these Service types mentioned above. The Services added by you in index.json are just additional Services based on the default image id rather than overwriting it; nor do you have permission to modify any Services configured under image id by default.
+
+For example when your configuration is like below:
+
+```json
+"backend": {
+  "imageid": "webide-ubuntu:2204",
+  "services": [
+    { "type": "iframe", "name": "HTTP 8081", "port": 8081 },
+  ]
+}
+```
+
+At this time，the `imageid` selected contains two default services - namely `kasm_vnc` and `ttyd` which correspond with what was shown earlier i.e., Desktop and SSH Tabs respectively .
+
+On top of that ,you've added one new service with type `iframe` named `HTTP 8081` which corresponds with another new Tab called `HTTP_8081`.
+
+Finally when Lab starts up,you'll see three tabs : `Desktop`,`SSH`,and `HTTP_8081`.

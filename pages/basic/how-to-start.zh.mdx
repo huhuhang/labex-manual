@@ -299,7 +299,7 @@ Verify 脚本的基础是 Shell 命令，因为要通过 SSH 连接到用户环�
 
 在这个例子中，`~/` 映射到 `/home/labex`，因为 `labex` 是默认用户，而 `/home/labex` 是该用户的主目录。
 
-下面的例子复制了三个特定的文件。没有使用 `*.py` 通配符来选择所有 `.py`  结尾的文件，而是将两个文件复制到主目录，而第三个文件被复制到 `/usr/local/bin`，并将其权限设置为可执行。
+下面的例子复制了三个特定的文件。没有使用 `*.py` 通配符来选择所有 `.py` 结尾的文件，而是将两个文件复制到主目录，而第三个文件被复制到 `/usr/local/bin`，并将其权限设置为可执行。
 
 ```json copy
 "assets": {
@@ -319,7 +319,15 @@ Verify 脚本的基础是 Shell 命令，因为要通过 SSH 连接到用户环�
 
 ### Backend
 
-`backend` 是实验和挑战的环境配置，必须为官方提供的名称，目前支持的环境有：
+`backend` 是实验和挑战的环境配置
+
+```json,
+"backend": {
+  "imageid": "webide-ubuntu:2204"
+}
+```
+
+`imageid` 必须为官方提供的名称，目前支持的环境有：
 
 - `vnc-ubuntu:2204`
 - `webide-ubuntu:2204`
@@ -335,5 +343,56 @@ Verify 脚本的基础是 Shell 命令，因为要通过 SSH 连接到用户环�
 选择建议如下：
 
 1. 优先建议用 WebIDE 环境，如果实验/挑战需要 GUI 环境，则需要使用 VNC。
-3. 大多数情况下，默认使用非云主机环境，即不包含 `instance`，因为云主机环境的启动时间较长，且云主机环境的成本高，不适合大量的实验/挑战使用。
-4. 如果实验/挑战不支持在容器环境中运行，或者需要使用 `instance` 云主机环境。例如 Docker 相关的实验/挑战，无法在 Docker 容器环境中完成，需要用云主机。
+2. 大多数情况下，默认使用非云主机环境，即不包含 `instance`，因为云主机环境的启动时间较长，且云主机环境的成本高，不适合大量的实验/挑战使用。
+3. 如果实验/挑战不支持在容器环境中运行，或者需要使用 `instance` 云主机环境。例如 Docker 相关的实验/挑战，无法在 Docker 容器环境中完成，需要用云主机。
+
+#### Backend Services
+
+在大多数情况下，你只需要配置好 `imageid` 即可，但我们提供了更多的灵活性允许对实验界面进行定制。
+
+当你仅配置 `imageid` 时，这个 `imageid` 会包含对实验环境界面的默认配置，例如启动后你可以看到如下界面，包含 2 个 Tabs，分别是 `Desktop` 和 `SSH`。
+
+![VM Tabs](.github/assets/vm-tabs.png)
+
+这个默认配置你无法修改，但是可以通过配置 Backend Services 按需新增更多类型的 Tabs。
+
+目前，我们支持的 Services 类型有：
+
+```json,
+"backend": {
+  "imageid": "webide-ubuntu:2204",
+  "services": [
+    { "type: "kasm_vnc"},
+    { "type: "ttyd"},
+    { "type: "iframe"},
+    { "type": "iframe", "name": "HTTP 8081", "port": 8081 },
+    { "type": "iframe", "src": "https://labex.io/courses"}
+  ]
+}
+```
+
+- `kasm_vnc`：即 VNC 界面，如果你的实验/挑战需要 GUI 界面，那么你需要配置这个类型的 Service。前端默认显示为 `Desktop` Tab。
+- `ttyd`：即 SSH 界面，如果你的实验/挑战需要 SSH 界面，那么你需要配置这个类型的 Service。前端默认显示为 `SSH` Tab。
+- `iframe`：即内嵌网页
+  - 没有配置 port 和 src 的 iframe 代表 console.iframe，也就是 webide；前端默认显示为 `WebIDE` Tab；
+  - 配置容器端口的 iframe，例如上面的例子中的 `HTTP 8080`；前端显示为 `HTTP 8080` Tab，当 Web 服务启动到相应端口后，你可以通过此 Tab 访问到 Web 服务；
+  - 配置固定 url 的 iframe，例如上面的例子中的 `https://labex.io/courses`。在 Tab 中内嵌一个固定的网页，例如你可以在这里内嵌一个文档，或者内嵌一个在线的 IDE。
+
+请注意，为了简化配置，我们会在 `imageid` 中配置固定的 Services，也是从上述的 Services 类型中选择。你在 `index.json` 中添加的 Services 只是在默认 `imageid` 的基础上新增的 Services，而不是覆盖。你也没有权限修改 `imageid` 中默认配置的 Services。
+
+例如，当你的配置如下时：
+
+```json
+"backend": {
+  "imageid": "webide-ubuntu:2204",
+  "services": [
+    { "type": "iframe", "name": "HTTP 8081", "port": 8081 },
+  ]
+}
+```
+
+此时，你选择的 `"imageid": "webide-ubuntu:2204"` 包含默认的 Services 有 2 个，分别是 `kasm_vnc` 和 `ttyd`，也就是上方你看到截图里的 `Desktop` 和 `SSH` Tab。
+
+在此基础上，你新增了一个 `iframe` 类型的 Service，也就是 `HTTP 8081` Tab。
+
+最终，当这个 Lab 启动后，你会看到 3 个 Tabs，分别是 `Desktop`、`SSH` 和 `HTTP 8081`。
