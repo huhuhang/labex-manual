@@ -1,0 +1,31 @@
+# Major Changes
+
+## 20230531
+
+**Overview:**
+
+In the content configured in the backend, a new feature called [Backend Services ↗](/basic/how-to-start#backend-services) has been added, which allows for more flexible configuration of the experimental interface required by a certain lab in `index.json`.
+
+In most cases, this is not necessary and does not need to be configured because the default interface configuration is already included in the `imageid` you have selected.
+
+## 20230323
+
+**Overview:**
+
+The challenge will manage the [structure of solutions ↗](/basic/how-to-start#basic-structure) for better product management. This will allow users to access the solution answer for a specific step when they are unable to proceed.
+
+**Changes:**
+
+1. A new "solutions" folder has been added parallel to the "asserts" folder in each directory, which stores solution files for each step.
+2. The index.json file now includes a new field called "solutions", which is a list type and can be bound to local md or code files in the solutions folder.
+
+**Differences from before:**
+
+1. Previously, there was also a solution answer folder for challenges, but naming conventions were not standardized (some authors used "solution", while others used "solutions"). Now it has been unified as "solutions".
+2. Currently, one file contains all answers for all challenges and needs to be split into individual steps' answers later on. With this change, if users cannot pass one particular step, they only need to view that specific step's answer instead of going through everything else first. Of course, if every step is an independent code file, binding them accordingly would suffice without organizing them into md files.
+
+**Additional Notes:**
+
+1. LabEx CLI command-line tool has already been updated.
+2. Labs are not affected by this change and do not require solutions.
+3. Challenges that have already been merged into the master branch will be modified uniformly without requiring author intervention; however those that have yet to be merged must follow these new requirements as specified by their respective authors.
