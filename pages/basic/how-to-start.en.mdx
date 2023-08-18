@@ -106,7 +106,6 @@ This is a sample `index.json` file:
         ],
         "skills": ["linux/ls", "linux/cd"],
         "solutions": ["step1-solution.md", "solution2.py"]
-        "layout": "doc-workbench-split"
       },
       {
         "title": "Oranges",
@@ -193,7 +192,7 @@ Details fields are the most important fields in `index.json`. The `details` fiel
 
 #### Steps
 
-The `intro` and `finish` items are the configuration of the start and end of the Lab. Both are special steps, and default to `doc-fullscreen` layout.
+The `intro` and `finish` items are the configuration of the start and end of the Lab. 
 
 ```json copy
 "intro": {
@@ -230,8 +229,7 @@ Other `steps` item specifies the steps of the lab.
         "showstderr": true
       }
     ],
-    "skills": ["linux/ls", "linux/cd"],
-    "layout": "doc-workbench-split"
+    "skills": ["linux/ls", "linux/cd"]
   }
 ]
 ```
@@ -247,7 +245,6 @@ The parameters of the steps are:
    4. `timeout`: Default `0`, which means no limit on the execution time of the script, if set, it means a limit on the number of seconds to execute.
    5. `showstderr`: Default is `false`, set to true to show stderr returned by the script, and no longer displays hint.
 4. `skills`: The skills of the step. it comes from the official Skill Tree. [See more details ↗](/advanced/skill-tree).
-5. `layout`: (Optional) The layout of the step, must be `doc-workbench-split` or `doc-fullscreen`. Intro and finish step default to `doc-fullscreen`, other steps default to `doc-workbench-split` if not filled.
 
 The verification script is executed when the learner completes a step and clicks the `Next` button.
 
