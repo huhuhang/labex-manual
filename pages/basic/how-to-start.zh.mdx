@@ -82,6 +82,8 @@ repo-name
   "description": "The description of basic template",
   "difficulty": "Beginner",
   "time": 5,
+  "hidden": false,
+  "fee_type": "pro",
   "details": {
     "steps": [
       {
@@ -141,7 +143,8 @@ repo-name
   },
   "backend": {
     "imageid": "vnc-ubuntu:2004"
-  }
+  },
+  "contributors": []
 }
 ```
 
@@ -168,6 +171,9 @@ repo-name
 3. `description`: 简介，通常为 10 ～ 30 个字符。
 4. `time`: 预估完成时间，单位为分钟，通常为 5 的倍数。
 5. `difficulty`: 难度，必须为 `Beginner`，`Intermediate` 或者 `Advanced`。
+6. `hidden`: 是否隐藏，默认为 False，管理员配置项，作者无需处理。
+7. `fee_type`: 收费类型，默认为 Pro，管理员配置项，作者无需处理。
+8. `contributors`: 贡献者列表，系统自动通过 GitHub 提交记录生成，作者无需处理。
 
 关于难度的定义：
 
