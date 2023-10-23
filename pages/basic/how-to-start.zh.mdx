@@ -322,7 +322,7 @@ Verify 脚本的基础是 Shell 命令，因为要通过 SSH 连接到用户环�
 
 ### Backend
 
-`backend` 是实验和挑战的环境配置
+`backend` 是实验环境配置项，包含以下内容：
 
 ```json,
 "backend": {
@@ -330,28 +330,41 @@ Verify 脚本的基础是 Shell 命令，因为要通过 SSH 连接到用户环�
 }
 ```
 
-`imageid` 必须为官方提供的名称，目前支持的环境有：
+实验环境可以简单理解由两部分组成，虚拟机（VM）和界面（Interface）。
+
+![.github/assets/vm-interface.png]
+
+目前，我们提供 2 种类型的虚拟机：
+
+1. 容器（Container）：Docker 容器，启动速度快，成本低，适合绝大多数的实验/挑战使用。
+2. 云主机（Instance）：云主机，启动速度慢，成本高，适合少数无法在 Docker 中完成的实验/挑战。例如学习 Docker 本身的实验，无法在 Docker 虚拟机中完成，需要在云主机中完成。
+
+目前，我们提供 3 种类型的界面：
+
+1. VNC：图形界面，适合需要 GUI 界面的实验/挑战。启动速度快。
+2. WebIDE：类 VS Code 代码编辑器界面，适合需要编写大量代码的实验/挑战。启动速度较慢。
+3. TTYD：命令行界面，适合仅需要终端操作的实验/挑战。启动速度最快。
+
+最终，我们通过 VM 和 Interface 的组合 `<interface>-<vm>-<os>:<version>`，提供了 6 个 `imageid` 名称：
 
 - `vnc-ubuntu:2204`
 - `webide-ubuntu:2204`
+- `ttyd-ubuntu:2204`
+
 - `vnc-instance-ubuntu:2204`
 - `webide-instance-ubuntu:2204`
+- `ttyd-instance-ubuntu:2204`
 
-环境解释如下：
+解释如下：
 
-1. `vnc` 指启动后默认是 GUI 桌面的环境，`webide` 指启动后默认是 VS Code 的环境。二者本质上一模一样，只是启动后的默认视图不同。
-2. `instance` 指启动后是一个新的虚拟机实例（云主机），不包含 `instance` 指启动后是一个新的容器实例（Docker）。
-3. `ubuntu:2204` 指启动后的操作系统是 Ubuntu 22.04，目前仅支持 Ubuntu 22.04。
-
-选择建议如下：
-
-1. 优先建议用 WebIDE 环境，如果实验/挑战需要 GUI 环境，则需要使用 VNC。
-2. 大多数情况下，默认使用非云主机环境，即不包含 `instance`，因为云主机环境的启动时间较长，且云主机环境的成本高，不适合大量的实验/挑战使用。
-3. 如果实验/挑战不支持在容器环境中运行，或者需要使用 `instance` 云主机环境。例如 Docker 相关的实验/挑战，无法在 Docker 容器环境中完成，需要用云主机。
-
-你可以通过 [这个课程](https://labex.io/courses/labex-env-testing/) 体验线上环境。
+1. 第一个部分 `<interface>`：一般情况下，所有的 Interface 都会展示给用户，用户可以自由切换，但是默认展示给用户的 Interface 由 `imageid` 的第一个部分决定。例如 `vnc` 和 `webide`，
+2. 第二个部分 `<vm>`：`instance` 指启动一个新的虚拟机实例（云主机），不包含 `instance`（更常用，省略）指启动后是一个新的容器实例（Docker）。
+3. 第三个部分 <os>:<version>：`ubuntu:2204` 指启动后的操作系统是 Ubuntu 22.04，目前仅支持 Ubuntu 22.04。
 
 #### Backend Services
+
+<details>
+<summary>以下部分不常用</summary>
 
 在大多数情况下，你只需要配置好 `imageid` 即可，但我们提供了更多的灵活性允许对实验界面进行定制。
 
@@ -401,3 +414,5 @@ Verify 脚本的基础是 Shell 命令，因为要通过 SSH 连接到用户环�
 在此基础上，你新增了一个 `iframe` 类型的 Service，也就是 `HTTP 8081` Tab。
 
 最终，当这个 Lab 启动后，你会看到 3 个 Tabs，分别是 `Desktop`、`SSH` 和 `HTTP 8081`。
+
+</details>
