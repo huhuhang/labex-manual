@@ -313,27 +313,44 @@ The example below copies over three specific assets. Instead of using the `*.py`
 
 ## Backend
 
-`Backend` is the environment configuration for experiments and challenges, and must be an official name provided. Currently supported environments include:
+`backend` is a configuration item for the experimental environment, which includes the following content:
+
+```json copy
+"backend": {
+  "imageid": "webide-ubuntu:2204"
+}
+```
+
+The experimental environment can be simply understood as consisting of two parts: virtual machine (VM) and interface.
+
+![vm-interface](.github/assets/vm-interface.png)
+
+Currently, we provide 2 types of virtual machines:
+
+1. **Container**: Docker container, fast startup speed, low cost, suitable for most labs/challenges.
+2. **Cloud instance**: cloud host, slow startup speed, high cost, suitable for a few labs/challenges that cannot be completed in Docker. For example, labs on learning Docker itself cannot be completed in a Docker VM and need to be completed in a cloud instance.
+
+Currently, we provide 3 types of interfaces:
+
+1. **VNC**: graphical interface suitable for labs/challenges that require GUI interface. Fast startup speed.
+2. **WebIDE**: VS Code-like code editor interface suitable for labs/challenges that require writing a large amount of code.. Slow startup speed.
+3. **TTYD**: command line interface suitable for labs/challenges that only require terminal operations. Fastest startup speed.
+
+In the end, we provide 6 `imageid` names through the combination of VM and Interface `<interface>-<vm>-<os>:<version>`:
 
 - `vnc-ubuntu:2204`
 - `webide-ubuntu:2204`
+- `ttyd-ubuntu:2204`
+
 - `vnc-instance-ubuntu:2204`
 - `webide-instance-ubuntu:2204`
+- `ttyd-instance-ubuntu:2204`
 
-Environment explanations are as follows:
+Explanation as follows:
 
-1.  `vnc` refers to an environment that defaults to a GUI desktop after startup, and `webide` refers to an environment that defaults to VS Code after startup. The two are essentially the same, with only different default views after startup.
-2.  `instance` refers to a new virtual machine instance (cloud host) after startup, and does not include `instance` which refers to a new container instance (Docker).
-3.  `ubuntu:2204` refers to the operating system being Ubuntu 22.04 after startup, and currently only Ubuntu 22.04 is supported.
-
-The recommended selections are as follows:
-
-1.  If the experiment/challenge requires a GUI environment, or **will not involve a lot of code file editing operations** (writing a lot of code in VNC has a poor experience), it is recommended to use the `vnc` desktop environment.
-2.  If the experiment/challenge does not require a GUI environment, or **will involve a lot of code file editing operations**, it is recommended to use the `webide` code editor environment.
-3.  In most cases, the default is to use a non-cloud host environment, that is, without `instance`, because the startup time of the cloud host environment is longer and the cost of the cloud host environment is high, which is not suitable for a large number of experiments/challenges.
-4.  If the experiment/challenge does not support running in a container environment, or requires using the `instance` cloud host environment. For example, Docker-related experiments/challenges cannot be completed in a Docker container environment and require a cloud host.
-
-You can experience the online environment through [this course](https://labex.io/courses/labex-env-testing/).
+1. The first part `<interface>`：In general cases，all Interfaces will be displayed to users and users can freely switch between them，but the default Interface displayed to users is determined by the first part of `imageid`. For example，`vnc` and `webide`.
+2. The second part `<vm>`：`instance` refers to starting a new virtual machine instance (cloud host)，while excluding ' 'instance' (more commonly used，omitted) means starting with a new container instance (Docker).
+3. The third part `<os>:<version>`：`ubuntu : 22.04' means that Ubuntu 22.04 is the operating system after start-up，currently only supporting Ubuntu 22.04。
 
 #### Backend Services
 
