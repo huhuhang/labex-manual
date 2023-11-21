@@ -42,7 +42,7 @@ const config: DocsThemeConfig = {
   },
   i18n: [
     { locale: "en", text: "English" },
-    { locale: "zh", text: "中文" },
+    { locale: "zh", text: "简体中文" },
   ],
 };
 
