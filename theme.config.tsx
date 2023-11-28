@@ -38,7 +38,7 @@ const config: DocsThemeConfig = {
     content: null,
   },
   project: {
-    link: "https://github.com/labex-labs/labex-docs",
+    link: "https://github.com/labex-labs/labex-manual",
   },
   i18n: [
     { locale: "en", text: "English" },
