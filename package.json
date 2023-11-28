@@ -1,5 +1,5 @@
 {
-  "name": "labex-instuctor-manual",
+  "name": "labex-manual",
   "version": "1.0.0",
   "description": "LabEx Instuctor Manual",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/labex-labs/instructor-docs.git"
+    "url": "git+https://github.com/labex-labs/labex-manual.git"
   },
   "author": "LabEx <info@labex.io>",
   "dependencies": {
