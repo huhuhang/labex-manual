@@ -1,7 +1,7 @@
 {
-  "name": "labex-docs",
+  "name": "labex-instuctor-manual",
   "version": "1.0.0",
-  "description": "LabEx Docs",
+  "description": "LabEx Instuctor Manual",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,9 +9,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/labex-labs/labex-docs.git"
+    "url": "git+https://github.com/labex-labs/instructor-docs.git"
   },
-  "author": "huhuhang <huhuhang@gmail.com>",
+  "author": "LabEx <info@labex.io>",
   "dependencies": {
     "@next/font": "^13.1.6",
     "next": "^13.5.0",
