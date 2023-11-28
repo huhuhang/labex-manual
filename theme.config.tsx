@@ -4,7 +4,7 @@ import { DocsThemeConfig } from "nextra-theme-docs";
 const config: DocsThemeConfig = {
   useNextSeoProps() {
     return {
-      titleTemplate: "%s – LabEx Instructor's Guidelines",
+      titleTemplate: "%s – LabEx Instructor Manual",
     };
   },
   logo: (
@@ -19,7 +19,7 @@ const config: DocsThemeConfig = {
   head: (
     <>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta property="og:title" content="LabEx Instructor's Guidelines" />
+      <meta property="og:title" content="LabEx Instructor Manual" />
       <meta property="og:description" content="Become an Instructor 成为作者" />
     </>
   ),
