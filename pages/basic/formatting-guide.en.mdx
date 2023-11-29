@@ -24,6 +24,18 @@ This guide is intended to help you write and design documentation that is clear,
 
 ## Image
 
+In most cases, we do not recommend inserting images or screenshots in the lab/challenge. The reasons are:
+
+1. Images may increase the size of the document, thus increasing download time.
+2. Images cannot be easily analyzed by large language models, and our document content is transmitted to the language model for learning assistant Labby to better assist users.
+
+We recommend that you:
+
+1. Try to convert the content expressed in images to text. For example, use markdown code blocks to display terminal input and output information, execution results, etc.
+2. If images are necessary, describe them using text paragraphs so that large language models can understand the content of the images.
+
+However, if you consider the screenshot images important for understanding the experiment or challenge, you can still insert them according to the following requirements:
+
 1. All images should not infringe on any copyright or trademark laws.
 2. All images should be in the `assets` directory.
 3. All images should be compressed using [TinyPNG ↗](https://tinypng.com/) before being added to the repository.
