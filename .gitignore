@@ -3,4 +3,3 @@ node_modules
 .DS_Store
 test.md
 pnpm-lock.yaml
-yarn.lock
